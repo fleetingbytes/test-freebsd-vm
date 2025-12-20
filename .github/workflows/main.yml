@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  test-freebsd:
+    runs-on: ubuntu-latest
+    name: Test compiling uv under FreeBSD
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+
+      - name: Test in FreeBSD
+        uses: vmactions/freebsd-vm@v1
+        with:
+          release: "15.0"
+          usesh: true
+          mem: 11264
+          prepare: |
+            pkg install -y python312 rust
+            cargo install --git https://github.com/astral-sh/uv uv
+          run: |
+            uv --version
