@@ -1,1 +1,1 @@
-This is a test of the freebsd-vm
+This is a test of the freebsd-vm.
