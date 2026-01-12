@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   test-freebsd:
     runs-on: ubuntu-latest
-    name: Test compiling uv under FreeBSD
+    name: Test time error
     steps:
       - name: Check out project
         uses: actions/checkout@v4
@@ -15,7 +15,6 @@ jobs:
         with:
           release: "15.0"
           usesh: true
-          mem: 11264
           copyback: false
           prepare: |
             pkg install -y libxml2 libxslt python314 rust uv
