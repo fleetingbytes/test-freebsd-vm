@@ -47,4 +47,4 @@ jobs:
             echo "st_birthtime"
             find "$GITHUB_WORKSPACE" -type d -exec stat -f "%SB %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
             echo "===== Install the project ====="
-            uv sync --no-managed-python --locked --verbose --python 3.14 --group test
+            uv sync --no-managed-python --locked --verbose --python 3.14
