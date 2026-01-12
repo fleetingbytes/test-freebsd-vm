@@ -6,6 +6,9 @@ jobs:
   test-freebsd:
     runs-on: ubuntu-latest
     name: Test time error
+    env:
+      UV_LOCKED: true
+      UV_NO_MANAGED_PYTHON: true
     steps:
       - name: Check out project
         uses: actions/checkout@v4
@@ -14,12 +17,34 @@ jobs:
         uses: vmactions/freebsd-vm@v1
         with:
           release: "15.0"
+          envs: 'UV_LOCKED UV_NO_MANAGED_PYTHON'
           usesh: true
+          sync: "."
           copyback: false
           prepare: |
-            pkg install -y git libxml2 libxslt python314 rust uv
+            echo "Current date: $(date)"
+            echo "===== Fix Clock ====="
+            ntpd -gq -s pool.ntp.org || true
+            echo "Current date: $(date)"
+            pkg install -y python314 rust uv
           run: |
-            git clone https://github.com/fleetingbytes/khm-analyzer
-            cd khm-analyzer
-            git switch words-sentences
+            echo "===== Find offending files ====="
+            echo "st_mtime"
+            find "$GITHUB_WORKSPACE" -type fl -exec stat -f "%Sm %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "st_atime"
+            find "$GITHUB_WORKSPACE" -type fl -exec stat -f "%Sa %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "st_ctime"
+            find "$GITHUB_WORKSPACE" -type fl -exec stat -f "%Sc %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "st_birthtime"
+            find "$GITHUB_WORKSPACE" -type fl -exec stat -f "%SB %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "===== Find offending directories ====="
+            echo "st_mtime"
+            find "$GITHUB_WORKSPACE" -type d -exec stat -f "%Sm %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "st_atime"
+            find "$GITHUB_WORKSPACE" -type d -exec stat -f "%Sa %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "st_ctime"
+            find "$GITHUB_WORKSPACE" -type d -exec stat -f "%Sc %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "st_birthtime"
+            find "$GITHUB_WORKSPACE" -type d -exec stat -f "%SB %N" -t "%Y-%m-%d %H:%M:%S" {} +  | sort -n | head -n 5
+            echo "===== Install the project ====="
             uv sync --no-managed-python --locked --verbose --python 3.14 --group test
