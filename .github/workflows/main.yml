@@ -16,8 +16,11 @@ jobs:
           release: "15.0"
           usesh: true
           mem: 11264
+          copyback: false
           prepare: |
-            pkg install -y python312 rust
-            cargo install --git https://github.com/astral-sh/uv uv
+            pkg install -y libxml2 libxslt python314 rust uv
           run: |
-            uv --version
+            uv init --app --package minimal-example
+            cd minimal-example
+            uv add --verbose lxml
+            uv sync --no-managed-python --locked --verbose --python 3.14
