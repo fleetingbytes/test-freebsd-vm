@@ -22,8 +22,7 @@ jobs:
           sync: "."
           copyback: false
           prepare: |
-            echo "Current date: $(date)"
-            echo "===== Fix Clock ====="
+            echo "===== Show Suspicious Basedate ====="
             ntpd -gq -s pool.ntp.org || true
             echo "Current date: $(date)"
             pkg install -y python314 rust uv
