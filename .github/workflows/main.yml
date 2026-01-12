@@ -22,4 +22,4 @@ jobs:
             git clone https://github.com/fleetingbytes/khm-analyzer
             cd khm-analyzer
             git switch words-sentences
-            uv sync --no-managed-python --locked --verbose --python 3.14
+            uv sync --no-managed-python --locked --verbose --python 3.14 --group test
