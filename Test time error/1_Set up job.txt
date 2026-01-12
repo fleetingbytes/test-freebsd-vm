@@ -1,0 +1,31 @@
+﻿2026-01-12T18:29:31.8897554Z Current runner version: '2.330.0'
+2026-01-12T18:29:31.8924052Z ##[group]Runner Image Provisioner
+2026-01-12T18:29:31.8924892Z Hosted Compute Agent
+2026-01-12T18:29:31.8925447Z Version: 20251211.462
+2026-01-12T18:29:31.8925997Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2026-01-12T18:29:31.8926813Z Build Date: 2025-12-11T16:28:49Z
+2026-01-12T18:29:31.8927426Z Worker ID: {943013ab-5471-4843-9168-115922d032a6}
+2026-01-12T18:29:31.8928106Z ##[endgroup]
+2026-01-12T18:29:31.8928724Z ##[group]Operating System
+2026-01-12T18:29:31.8929253Z Ubuntu
+2026-01-12T18:29:31.8929698Z 24.04.3
+2026-01-12T18:29:31.8930180Z LTS
+2026-01-12T18:29:31.8930656Z ##[endgroup]
+2026-01-12T18:29:31.8931136Z ##[group]Runner Image
+2026-01-12T18:29:31.8931732Z Image: ubuntu-24.04
+2026-01-12T18:29:31.8932200Z Version: 20260105.202.1
+2026-01-12T18:29:31.8933448Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260105.202/images/ubuntu/Ubuntu2404-Readme.md
+2026-01-12T18:29:31.8934958Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260105.202
+2026-01-12T18:29:31.8936119Z ##[endgroup]
+2026-01-12T18:29:31.8937286Z ##[group]GITHUB_TOKEN Permissions
+2026-01-12T18:29:31.8939452Z Contents: read
+2026-01-12T18:29:31.8940447Z Metadata: read
+2026-01-12T18:29:31.8941371Z Packages: read
+2026-01-12T18:29:31.8942263Z ##[endgroup]
+2026-01-12T18:29:31.8946026Z Secret source: Actions
+2026-01-12T18:29:31.8947199Z Prepare workflow directory
+2026-01-12T18:29:31.9350572Z Prepare all required actions
+2026-01-12T18:29:31.9390455Z Getting action download info
+2026-01-12T18:29:32.3000882Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-01-12T18:29:32.4011551Z Download action repository 'vmactions/freebsd-vm@v1' (SHA:a9c0dcaf5ed572d89ea1a59fe2217d3b3da4fd23)
+2026-01-12T18:29:33.9770246Z Complete job name: Test time error

@@ -21,6 +21,7 @@ jobs:
           usesh: true
           sync: "."
           copyback: false
+          sync-time: true
           prepare: |
             echo "===== Show Suspicious Basedate ====="
             ntpd -gq -s pool.ntp.org || true

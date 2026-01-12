@@ -1,0 +1,75 @@
+﻿2026-01-12T18:29:34.0690760Z ##[group]Run actions/checkout@v4
+2026-01-12T18:29:34.0692153Z with:
+2026-01-12T18:29:34.0693284Z   repository: fleetingbytes/test-freebsd-vm
+2026-01-12T18:29:34.0694812Z   token: ***
+2026-01-12T18:29:34.0695566Z   ssh-strict: true
+2026-01-12T18:29:34.0696352Z   ssh-user: git
+2026-01-12T18:29:34.0697148Z   persist-credentials: true
+2026-01-12T18:29:34.0698054Z   clean: true
+2026-01-12T18:29:34.0698858Z   sparse-checkout-cone-mode: true
+2026-01-12T18:29:34.0699847Z   fetch-depth: 1
+2026-01-12T18:29:34.0700635Z   fetch-tags: false
+2026-01-12T18:29:34.0701454Z   show-progress: true
+2026-01-12T18:29:34.0702418Z   lfs: false
+2026-01-12T18:29:34.0703184Z   submodules: false
+2026-01-12T18:29:34.0703998Z   set-safe-directory: true
+2026-01-12T18:29:34.0705173Z env:
+2026-01-12T18:29:34.0705866Z   UV_LOCKED: true
+2026-01-12T18:29:34.0706665Z   UV_NO_MANAGED_PYTHON: true
+2026-01-12T18:29:34.0707570Z ##[endgroup]
+2026-01-12T18:29:34.1900168Z Syncing repository: fleetingbytes/test-freebsd-vm
+2026-01-12T18:29:34.1903343Z ##[group]Getting Git version info
+2026-01-12T18:29:34.1905078Z Working directory is '/home/runner/work/test-freebsd-vm/test-freebsd-vm'
+2026-01-12T18:29:34.1907155Z [command]/usr/bin/git version
+2026-01-12T18:29:34.1973074Z git version 2.52.0
+2026-01-12T18:29:34.2001848Z ##[endgroup]
+2026-01-12T18:29:34.2025167Z Temporarily overriding HOME='/home/runner/work/_temp/6a95cdaf-9b52-406b-aa99-2b28526f7381' before making global git config changes
+2026-01-12T18:29:34.2028130Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-12T18:29:34.2031130Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/test-freebsd-vm/test-freebsd-vm
+2026-01-12T18:29:34.2075583Z Deleting the contents of '/home/runner/work/test-freebsd-vm/test-freebsd-vm'
+2026-01-12T18:29:34.2079529Z ##[group]Initializing the repository
+2026-01-12T18:29:34.2084202Z [command]/usr/bin/git init /home/runner/work/test-freebsd-vm/test-freebsd-vm
+2026-01-12T18:29:34.2228494Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-01-12T18:29:34.2232490Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-01-12T18:29:34.2235173Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-01-12T18:29:34.2236677Z hint: call:
+2026-01-12T18:29:34.2237403Z hint:
+2026-01-12T18:29:34.2238942Z hint: 	git config --global init.defaultBranch <name>
+2026-01-12T18:29:34.2240341Z hint:
+2026-01-12T18:29:34.2241459Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-01-12T18:29:34.2243701Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-01-12T18:29:34.2245601Z hint:
+2026-01-12T18:29:34.2246361Z hint: 	git branch -m <name>
+2026-01-12T18:29:34.2247231Z hint:
+2026-01-12T18:29:34.2248426Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-01-12T18:29:34.2250600Z Initialized empty Git repository in /home/runner/work/test-freebsd-vm/test-freebsd-vm/.git/
+2026-01-12T18:29:34.2254551Z [command]/usr/bin/git remote add origin https://github.com/fleetingbytes/test-freebsd-vm
+2026-01-12T18:29:34.2287209Z ##[endgroup]
+2026-01-12T18:29:34.2288669Z ##[group]Disabling automatic garbage collection
+2026-01-12T18:29:34.2292246Z [command]/usr/bin/git config --local gc.auto 0
+2026-01-12T18:29:34.2326194Z ##[endgroup]
+2026-01-12T18:29:34.2327518Z ##[group]Setting up auth
+2026-01-12T18:29:34.2333222Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-12T18:29:34.2365359Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-12T18:29:34.2747188Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-12T18:29:34.2779901Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-12T18:29:34.3007950Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-12T18:29:34.3043981Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-12T18:29:34.3275035Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-12T18:29:34.3314245Z ##[endgroup]
+2026-01-12T18:29:34.3315793Z ##[group]Fetching the repository
+2026-01-12T18:29:34.3322726Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bb553736f3bab88c78e0e224edef3dd7e626e0be:refs/remotes/origin/master
+2026-01-12T18:29:34.6245285Z From https://github.com/fleetingbytes/test-freebsd-vm
+2026-01-12T18:29:34.6246442Z  * [new ref]         bb553736f3bab88c78e0e224edef3dd7e626e0be -> origin/master
+2026-01-12T18:29:34.6279298Z ##[endgroup]
+2026-01-12T18:29:34.6281132Z ##[group]Determining the checkout info
+2026-01-12T18:29:34.6283375Z ##[endgroup]
+2026-01-12T18:29:34.6287790Z [command]/usr/bin/git sparse-checkout disable
+2026-01-12T18:29:34.6334159Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-01-12T18:29:34.6364014Z ##[group]Checking out the ref
+2026-01-12T18:29:34.6368812Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-01-12T18:29:34.6421574Z Reset branch 'master'
+2026-01-12T18:29:34.6422981Z branch 'master' set up to track 'origin/master'.
+2026-01-12T18:29:34.6431588Z ##[endgroup]
+2026-01-12T18:29:34.6473050Z [command]/usr/bin/git log -1 --format=%H
+2026-01-12T18:29:34.6498098Z bb553736f3bab88c78e0e224edef3dd7e626e0be
