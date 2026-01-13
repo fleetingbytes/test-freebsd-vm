@@ -19,7 +19,6 @@ jobs:
           release: "15.0"
           envs: 'UV_LOCKED UV_NO_MANAGED_PYTHON'
           usesh: true
-          sync: "."
           copyback: false
           sync-time: true
           prepare: |
